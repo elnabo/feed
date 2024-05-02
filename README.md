@@ -20,10 +20,10 @@ var data = '
 			<summary>Some interesting description.</summary>
 		</entry>
 	</feed>
-'
+';
 var atom = feed.atom.AtomParser.parse(data);
-trace(atom.title); // Example Title
-trace(atom.entry[0].link.href); // Some interesting description.
+trace(atom.title.value); // Example Title
+trace(atom.entries[0].link.href); // Some interesting description.
 ```
 
 ## RSS
