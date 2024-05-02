@@ -1,0 +1,12 @@
+{
+	"name": "feed",
+	"url" : "https://github.com/elnabo/feed/",
+	"license": "MIT",
+	"tags": ["atom", "cross", "rss"],
+	"description": "Parsers and type definitions for Atom and RSS files",
+	"version": "1.0.0",
+	"releasenote": "",
+	"contributors": ["elnabo"],
+	"classPath": "src",
+	"dependencies": {}
+}
