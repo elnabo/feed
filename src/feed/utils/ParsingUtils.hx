@@ -17,7 +17,6 @@ function extractRoot(data:String) {
 		return new Access(root);
 	}
 	catch(_) {
-		trace(_);
 		throw Error.InvalidXML;
 	}
 }
