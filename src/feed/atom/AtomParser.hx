@@ -8,15 +8,18 @@ import haxe.xml.Access;
 using feed.atom.AtomParser;
 
 class AtomParser {
-	public static function parse(data:String) {
-		final feed = extractRoot(data);
-		if (feed.name != 'feed') {
+	public static inline function parse(data:String) {
+		return AtomParser.parseXML(extractRoot(data));
+	}
+
+	public static function parseXML(data:Access) {
+		if (data.name != 'feed') {
 			throw Error.InvalidAtom;
 		}
 
 		final atom = new Atom();
 
-		for (elt in feed.elements) {
+		for (elt in data.elements) {
 			switch(elt.name) {
 				case 'author':
 					atom.authors.push(elt.parsePerson());

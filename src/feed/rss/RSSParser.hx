@@ -5,8 +5,7 @@ import feed.utils.ParsingUtils.extractRoot;
 import haxe.xml.Access;
 
 class RSSParser {
-	static function extractChannel(data:String) {
-		var rss = extractRoot(data);
+	static function extractChannel(rss:Access) {
 		if (rss.name != 'rss') {
 			throw Error.InvalidRSS;
 		}
@@ -18,7 +17,11 @@ class RSSParser {
 		throw Error.InvalidRSS;
 	}
 
-	public static function parse(data:String) {
+	public static inline function parse(data:String) {
+		return RSSParser.parseXML(extractRoot(data));
+	}
+
+	public static function parseXML(data:Access) {
 		final channel = RSSParser.extractChannel(data);
 
 		final rss = new RSS();
